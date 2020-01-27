@@ -12,11 +12,11 @@ namespace CapaDatos.CargarDatos
         public List<Air> DT()
         {
             List<Air> rsp = null;
-            using (BDAEntities db = new BDAEntities())
+            using (BDAEntities1 db = new BDAEntities1())
             {
 
-                rsp = db.Air.ToList(); /* (from u in db.Air select u).ToList();
-            */}
+                rsp = /*db.Air.ToList();*/ (from u in db.Air select u).ToList();
+            }
             return rsp;
         }
     }

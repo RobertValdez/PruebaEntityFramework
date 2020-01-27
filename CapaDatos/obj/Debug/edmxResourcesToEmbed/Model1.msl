@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="BDAModelStoreContainer" CdmEntityContainer="BDAEntities">
+  <EntityContainerMapping StorageEntityContainer="BDAModelStoreContainer" CdmEntityContainer="BDAEntities1">
     <EntitySetMapping Name="Air">
       <EntityTypeMapping TypeName="BDAModel.Air">
         <MappingFragment StoreEntitySet="Air">
-          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
-          <ScalarProperty Name="c" ColumnName="c" />
-          <ScalarProperty Name="b" ColumnName="b" />
           <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="c" ColumnName="c" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
