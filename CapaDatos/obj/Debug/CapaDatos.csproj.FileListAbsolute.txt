@@ -1,0 +1,11 @@
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\CapaDatos.dll.config
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\EntityFramework.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\EntityFramework.xml
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\obj\Debug\CapaDatos.csproj.CoreCompileInputs.cache
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\obj\Debug\CapaDatos.csproj.CopyComplete
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaDatos\obj\Debug\CapaDatos.pdb

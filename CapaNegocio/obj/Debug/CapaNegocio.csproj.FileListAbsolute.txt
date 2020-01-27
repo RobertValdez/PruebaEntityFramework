@@ -1,0 +1,12 @@
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\EntityFramework.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\CapaDatos.dll.config
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\bin\Debug\EntityFramework.xml
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\obj\Debug\CapaNegocio.csprojAssemblyReference.cache
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\obj\Debug\CapaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\obj\Debug\CapaNegocio.csproj.CopyComplete
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaNegocio\obj\Debug\CapaNegocio.pdb
