@@ -12,11 +12,13 @@ namespace CapaDatos
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class BDAEntities1 : DbContext
     {
         public BDAEntities1()
-            : base("BDAEntities1")
+            : base("name=BDAEntities1")
         {
         }
     
@@ -26,5 +28,21 @@ namespace CapaDatos
         }
     
         public virtual DbSet<Air> Air { get; set; }
+        public virtual DbSet<Farma> Farma { get; set; }
+        public virtual DbSet<Cologia> Cologia { get; set; }
+    
+        public virtual ObjectResult<RTS_Result> RTS()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RTS_Result>("RTS");
+        }
+    
+        public virtual ObjectResult<FDT_Result> FDT(Nullable<int> a)
+        {
+            var aParameter = a.HasValue ?
+                new ObjectParameter("A", a) :
+                new ObjectParameter("A", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<FDT_Result>("FDT", aParameter);
+        }
     }
 }

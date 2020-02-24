@@ -6,6 +6,9 @@
     <edmx:Diagrams>
       <Diagram DiagramId="7afcd37e56444d609b0786e69482f96c" Name="Diagram1">
         <EntityTypeShape EntityType="BDAModel.Air" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDAModel.Farma" Width="1.5" PointX="3.25" PointY="0.75" />
+        <EntityTypeShape EntityType="BDAModel.Cologia" Width="1.5" PointX="5.75" PointY="1.125" />
+        <AssociationConnector Association="BDAModel.FK_Cologia_Farma" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

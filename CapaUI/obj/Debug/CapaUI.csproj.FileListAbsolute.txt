@@ -18,3 +18,4 @@ C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\Capa
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaUI\obj\Debug\CapaUI.csproj.CopyComplete
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaUI\obj\Debug\CapaUI.exe
 C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaUI\obj\Debug\CapaUI.pdb
+C:\Users\Robert\Documents\Visual Studio 2017\Projects\PruebaEntityFramework\CapaUI\obj\Debug\CapaUI.ProcAlmacenado.resources

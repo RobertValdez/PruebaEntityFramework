@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ejecutar datos\ProcAlm.cs" />
     <Compile Include="InsertarDatos\N_InsertarDatos.cs" />
     <Compile Include="Modificar\N_Modificar.cs" />
     <Compile Include="N_CargarDatos.cs" />

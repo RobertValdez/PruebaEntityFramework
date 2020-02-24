@@ -36,6 +36,7 @@
             this.txtId = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.txtId_Eliminar = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,11 +109,20 @@
             this.txtId_Eliminar.Size = new System.Drawing.Size(74, 20);
             this.txtId_Eliminar.TabIndex = 2;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(939, 157);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 471);
+            this.ClientSize = new System.Drawing.Size(1102, 524);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.txtEdad);
             this.Controls.Add(this.txtId_Eliminar);
             this.Controls.Add(this.txtId);
@@ -140,6 +150,7 @@
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.TextBox txtId_Eliminar;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

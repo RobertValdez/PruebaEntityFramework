@@ -11,9 +11,9 @@ namespace CapaNegocio
     public class N_CargarDatos
     {
         D_CargarDatos D_CargarDatos = new D_CargarDatos();
-        public List<Air> N_cargarDatos()
-        {
-            return D_CargarDatos.DT();
-        }
+        //public List<Air> N_cargarDatos()
+        //{
+        //   // return D_CargarDatos.DT();
+        //}
     }
 }

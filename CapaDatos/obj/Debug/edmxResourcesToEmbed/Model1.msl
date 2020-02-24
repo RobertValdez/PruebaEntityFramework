@@ -11,5 +11,45 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Farma">
+      <EntityTypeMapping TypeName="BDAModel.Farma">
+        <MappingFragment StoreEntitySet="Farma">
+          <ScalarProperty Name="ses" ColumnName="ses" />
+          <ScalarProperty Name="ves" ColumnName="ves" />
+          <ScalarProperty Name="As" ColumnName="As" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="RTS" FunctionName="BDAModel.Store.RTS">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDAModel.RTS_Result">
+          <ScalarProperty Name="a" ColumnName="a" />
+          <ScalarProperty Name="b" ColumnName="b" />
+          <ScalarProperty Name="As" ColumnName="As" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Cologia">
+      <EntityTypeMapping TypeName="BDAModel.Cologia">
+        <MappingFragment StoreEntitySet="Cologia">
+          <ScalarProperty Name="Curso" ColumnName="Curso" />
+          <ScalarProperty Name="Estudio" ColumnName="Estudio" />
+          <ScalarProperty Name="idFarma" ColumnName="idFarma" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="FDT" FunctionName="BDAModel.Store.FDT">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BDAModel.FDT_Result">
+          <ScalarProperty Name="As" ColumnName="As" />
+          <ScalarProperty Name="ves" ColumnName="ves" />
+          <ScalarProperty Name="ses" ColumnName="ses" />
+          <ScalarProperty Name="Estudio" ColumnName="Estudio" />
+          <ScalarProperty Name="Curso" ColumnName="Curso" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

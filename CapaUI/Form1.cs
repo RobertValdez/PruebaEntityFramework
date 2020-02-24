@@ -31,8 +31,8 @@ namespace CapaUI
         }
         private void CargarDatos()
         {
-            List<Air> MostrarDatos = N_CargarDatos.N_cargarDatos();
-            dataGridView1.DataSource = MostrarDatos;
+          //  List<Air> MostrarDatos = N_CargarDatos.N_cargarDatos();
+            //dataGridView1.DataSource = MostrarDatos;
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -86,6 +86,15 @@ namespace CapaUI
                 MessageBox.Show("Eliminado correctamente");
                 CargarDatos();
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.TextChanged += delegate (System.Object o, System.EventArgs r)
+            {
+                TextBox _tbox = o as TextBox;
+                _tbox.Text = new string(_tbox.Text.Where(c => (char.IsDigit(c))).ToArray());
+            };
         }
     }
 }

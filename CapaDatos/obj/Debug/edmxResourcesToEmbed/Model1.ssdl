@@ -9,7 +9,47 @@
     <Property Name="c" Type="float" />
     <Property Name="Fecha" Type="datetime" />
   </EntityType>
+  <EntityType Name="Cologia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idFarma" Type="int" Nullable="false" />
+    <Property Name="Estudio" Type="varchar" MaxLength="50" />
+    <Property Name="Curso" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Farma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="As" Type="nchar" MaxLength="10" />
+    <Property Name="ves" Type="nchar" MaxLength="10" />
+    <Property Name="ses" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_Cologia_Farma">
+    <End Role="Farma" Type="Self.Farma" Multiplicity="1" />
+    <End Role="Cologia" Type="Self.Cologia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farma">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cologia">
+        <PropertyRef Name="idFarma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="FDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="A" Type="int" Mode="In" />
+  </Function>
+  <Function Name="RTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BDAModelStoreContainer">
     <EntitySet Name="Air" EntityType="Self.Air" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cologia" EntityType="Self.Cologia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Farma" EntityType="Self.Farma" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Cologia_Farma" Association="Self.FK_Cologia_Farma">
+      <End Role="Farma" EntitySet="Farma" />
+      <End Role="Cologia" EntitySet="Cologia" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

@@ -11,5 +11,59 @@
   </EntityType>
   <EntityContainer Name="BDAEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Air" EntityType="Self.Air" />
+    <EntitySet Name="Farma" EntityType="BDAModel.Farma" />
+    <FunctionImport Name="RTS" ReturnType="Collection(BDAModel.RTS_Result)" />
+    <EntitySet Name="Cologia" EntityType="BDAModel.Cologia" />
+    <AssociationSet Name="FK_Cologia_Farma" Association="BDAModel.FK_Cologia_Farma">
+      <End Role="Farma" EntitySet="Farma" />
+      <End Role="Cologia" EntitySet="Cologia" />
+    </AssociationSet>
+    <FunctionImport Name="FDT" ReturnType="Collection(BDAModel.FDT_Result)">
+      <Parameter Name="A" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
+  <EntityType Name="Farma">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="As" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ves" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ses" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Cologia" Relationship="BDAModel.FK_Cologia_Farma" FromRole="Farma" ToRole="Cologia" />
+  </EntityType>
+  <ComplexType Name="RTS_Result">
+    <Property Type="Int32" Name="a" Nullable="false" />
+    <Property Type="String" Name="b" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="As" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <EntityType Name="Cologia">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idFarma" Type="Int32" Nullable="false" />
+    <Property Name="Estudio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Farma" Relationship="BDAModel.FK_Cologia_Farma" FromRole="Cologia" ToRole="Farma" />
+  </EntityType>
+  <Association Name="FK_Cologia_Farma">
+    <End Type="BDAModel.Farma" Role="Farma" Multiplicity="1" />
+    <End Type="BDAModel.Cologia" Role="Cologia" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Farma">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Cologia">
+        <PropertyRef Name="idFarma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="FDT_Result">
+    <Property Type="String" Name="As" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ves" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ses" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Estudio" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Curso" Nullable="true" MaxLength="50" />
+  </ComplexType>
 </Schema>

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BDAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Air">
           <Key>
             <PropertyRef Name="a" />
@@ -14,11 +14,50 @@
           <Property Name="c" Type="float" />
           <Property Name="Fecha" Type="datetime" />
         </EntityType>
+        <EntityType Name="Cologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idFarma" Type="int" Nullable="false" />
+          <Property Name="Estudio" Type="varchar" MaxLength="50" />
+          <Property Name="Curso" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Farma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="As" Type="nchar" MaxLength="10" />
+          <Property Name="ves" Type="nchar" MaxLength="10" />
+          <Property Name="ses" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <Association Name="FK_Cologia_Farma">
+          <End Role="Farma" Type="Self.Farma" Multiplicity="1" />
+          <End Role="Cologia" Type="Self.Cologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farma">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cologia">
+              <PropertyRef Name="idFarma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="FDT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="A" Type="int" Mode="In" />
+        </Function>
+        <Function Name="RTS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BDAModelStoreContainer">
           <EntitySet Name="Air" EntityType="Self.Air" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cologia" EntityType="Self.Cologia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farma" EntityType="Self.Farma" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Cologia_Farma" Association="Self.FK_Cologia_Farma">
+            <End Role="Farma" EntitySet="Farma" />
+            <End Role="Cologia" EntitySet="Cologia" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BDAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -33,7 +72,61 @@
         </EntityType>
         <EntityContainer Name="BDAEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Air" EntityType="Self.Air" />
+          <EntitySet Name="Farma" EntityType="BDAModel.Farma" />
+          <FunctionImport Name="RTS" ReturnType="Collection(BDAModel.RTS_Result)" />
+          <EntitySet Name="Cologia" EntityType="BDAModel.Cologia" />
+          <AssociationSet Name="FK_Cologia_Farma" Association="BDAModel.FK_Cologia_Farma">
+            <End Role="Farma" EntitySet="Farma" />
+            <End Role="Cologia" EntitySet="Cologia" />
+          </AssociationSet>
+          <FunctionImport Name="FDT" ReturnType="Collection(BDAModel.FDT_Result)">
+            <Parameter Name="A" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
+        <EntityType Name="Farma">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="As" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ves" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="ses" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cologia" Relationship="BDAModel.FK_Cologia_Farma" FromRole="Farma" ToRole="Cologia" />
+        </EntityType>
+        <ComplexType Name="RTS_Result">
+          <Property Type="Int32" Name="a" Nullable="false" />
+          <Property Type="String" Name="b" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="As" Nullable="true" MaxLength="10" />
+        </ComplexType>
+        <EntityType Name="Cologia">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idFarma" Type="Int32" Nullable="false" />
+          <Property Name="Estudio" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Curso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Farma" Relationship="BDAModel.FK_Cologia_Farma" FromRole="Cologia" ToRole="Farma" />
+        </EntityType>
+        <Association Name="FK_Cologia_Farma">
+          <End Type="BDAModel.Farma" Role="Farma" Multiplicity="1" />
+          <End Type="BDAModel.Cologia" Role="Cologia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Farma">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Cologia">
+              <PropertyRef Name="idFarma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="FDT_Result">
+          <Property Type="String" Name="As" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ves" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="ses" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Estudio" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Curso" Nullable="true" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -50,6 +143,46 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Farma">
+            <EntityTypeMapping TypeName="BDAModel.Farma">
+              <MappingFragment StoreEntitySet="Farma">
+                <ScalarProperty Name="ses" ColumnName="ses" />
+                <ScalarProperty Name="ves" ColumnName="ves" />
+                <ScalarProperty Name="As" ColumnName="As" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="RTS" FunctionName="BDAModel.Store.RTS">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDAModel.RTS_Result">
+                <ScalarProperty Name="a" ColumnName="a" />
+                <ScalarProperty Name="b" ColumnName="b" />
+                <ScalarProperty Name="As" ColumnName="As" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Cologia">
+            <EntityTypeMapping TypeName="BDAModel.Cologia">
+              <MappingFragment StoreEntitySet="Cologia">
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+                <ScalarProperty Name="Estudio" ColumnName="Estudio" />
+                <ScalarProperty Name="idFarma" ColumnName="idFarma" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="FDT" FunctionName="BDAModel.Store.FDT">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BDAModel.FDT_Result">
+                <ScalarProperty Name="As" ColumnName="As" />
+                <ScalarProperty Name="ves" ColumnName="ves" />
+                <ScalarProperty Name="ses" ColumnName="ses" />
+                <ScalarProperty Name="Estudio" ColumnName="Estudio" />
+                <ScalarProperty Name="Curso" ColumnName="Curso" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
